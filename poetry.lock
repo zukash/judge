@@ -172,6 +172,14 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 dev = ["pre-commit", "tox"]
 
 [[package]]
+name = "plumbum"
+version = "1.6.9"
+description = "Plumbum: shell combinators library"
+category = "main"
+optional = false
+python-versions = ">=2.6,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+
+[[package]]
 name = "py"
 version = "1.9.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
@@ -194,6 +202,17 @@ description = "passive checker of Python programs"
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[[package]]
+name = "pyfzf"
+version = "0.2.2"
+description = "Python wrapper for junegunn's fuzzyfinder (fzf)"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+plumbum = "*"
 
 [[package]]
 name = "pyparsing"
@@ -307,7 +326,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "babe368adffb44fb88a0bf72dc073e1ebdf429113333e8d250fabe8c93ba11ed"
+content-hash = "3f940112477d8091aab6f5e1f396678d180cc4dbf714bf22638e9f68e9e047ef"
 
 [metadata.files]
 appdirs = [
@@ -377,6 +396,10 @@ pluggy = [
     {file = "pluggy-0.13.1-py2.py3-none-any.whl", hash = "sha256:966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"},
     {file = "pluggy-0.13.1.tar.gz", hash = "sha256:15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"},
 ]
+plumbum = [
+    {file = "plumbum-1.6.9-py2.py3-none-any.whl", hash = "sha256:91418dcc66b58ab9d2e3b04b3d1e0d787dc45923154fb8b4a826bd9316dba0d6"},
+    {file = "plumbum-1.6.9.tar.gz", hash = "sha256:16b9e19d96c80f2e9d051ef5f04927b834a6ac0ce5d2768eb8662b5cd53e43df"},
+]
 py = [
     {file = "py-1.9.0-py2.py3-none-any.whl", hash = "sha256:366389d1db726cd2fcfc79732e75410e5fe4d31db13692115529d34069a043c2"},
     {file = "py-1.9.0.tar.gz", hash = "sha256:9ca6883ce56b4e8da7e79ac18787889fa5206c79dcc67fb065376cd2fe03f342"},
@@ -388,6 +411,10 @@ pycodestyle = [
 pyflakes = [
     {file = "pyflakes-2.2.0-py2.py3-none-any.whl", hash = "sha256:0d94e0e05a19e57a99444b6ddcf9a6eb2e5c68d3ca1e98e90707af8152c90a92"},
     {file = "pyflakes-2.2.0.tar.gz", hash = "sha256:35b2d75ee967ea93b55750aa9edbbf72813e06a66ba54438df2cfac9e3c27fc8"},
+]
+pyfzf = [
+    {file = "pyfzf-0.2.2-py3-none-any.whl", hash = "sha256:1f324717fcae6746c05094be09b36f45412f0965b2d718c8d2352877ae20df69"},
+    {file = "pyfzf-0.2.2.tar.gz", hash = "sha256:8a35234fd6b3d6abca2b9971c5b27e157cfd878ee3ee9f707ddf6373438ad541"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
