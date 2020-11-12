@@ -7,6 +7,7 @@ authors = ["ishizuka_shota <ishizuka.shota1996@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = "^2.25.0"
+pyfzf = "^0.2.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
