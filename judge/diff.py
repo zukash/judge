@@ -4,14 +4,7 @@ from pathlib import Path
 
 from pyfzf import FzfPrompt
 
-
-def parse(problem_name):
-    """ 問題文からテストケースを抜き出して返す """
-
-    # TODO: Beautiful Soup
-    dummy_input = ["3 4", "10 15", "21 100"]
-    dummy_output = ["7\n", "25\n", "121\n"]
-    return [dummy_input, dummy_output]
+from judge.parse import parse
 
 
 def diff():
@@ -62,3 +55,6 @@ def diff():
             print("\n".join(diff))
 
         print("=================")
+
+
+diff()
