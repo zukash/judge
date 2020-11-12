@@ -55,6 +55,3 @@ def diff():
             print("\n".join(diff))
 
         print("=================")
-
-
-diff()
