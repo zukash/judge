@@ -4,6 +4,7 @@ import fire
 
 from .diff import diff
 from .fetch import fetch
+from .remove import remove
 
 
 class Judge(object):
@@ -16,6 +17,9 @@ class Judge(object):
     def problems(self):
         problem_list = (Path.home() / ".judge").glob("*")
         print("\n".join([p.name for p in problem_list]))
+
+    def rm(self):
+        remove()
 
 
 def main():
