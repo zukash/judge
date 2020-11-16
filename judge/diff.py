@@ -1,4 +1,5 @@
 import subprocess
+import time
 from difflib import Differ
 from pathlib import Path
 
@@ -6,6 +7,22 @@ from pyfzf import FzfPrompt
 from termcolor import cprint
 
 from judge.parse import parse
+
+
+def execute(command, sample_input):
+    """ execute command and measure elapsed time """
+
+    start_time = time.time()
+    cp = subprocess.run(
+        command,
+        input=sample_input.encode(),
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    elapsed_time = time.time() - start_time
+    result, error = cp.stdout.decode(), cp.stderr.decode()
+
+    return [result, error, elapsed_time]
 
 
 def diff():
@@ -33,13 +50,7 @@ def diff():
     # check diff
     for sample_input, sample_output in zip(*parse(problem_selected)):
         # execute the solver
-        cp = subprocess.run(
-            command,
-            input=sample_input.encode(),
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        )
-        result, error = cp.stdout.decode(), cp.stderr.decode()
+        result, error, elapsed_time = execute(command, sample_input)
 
         if error:
             print(error)
@@ -50,9 +61,11 @@ def diff():
         diff = list(Differ().compare(sample_output, result))
 
         if len(diff) == len(sample_output):
-            cprint("[AC]", "green")
+            cprint("[AC]", "green", end=" ")
+            cprint(f"{elapsed_time:.3f}", "grey")
         else:
-            cprint("[WA]", "yellow")
+            cprint("[WA]", "yellow", end=" ")
+            cprint(f"{elapsed_time:.3f}", "grey")
             print("\n".join(diff))
 
         print("=================")
