@@ -25,7 +25,7 @@ def execute(command, sample_input):
     return [result, error, elapsed_time]
 
 
-def diff():
+def diff(quiet=False):
     """ テストケースとの差を返す """
 
     # choose the problem
@@ -63,9 +63,12 @@ def diff():
         if len(diff) == len(sample_output):
             cprint("[AC]", "green", end=" ")
             cprint(f"{elapsed_time:.3f}", "grey")
+            if not quiet:
+                pass
         else:
             cprint("[WA]", "yellow", end=" ")
             cprint(f"{elapsed_time:.3f}", "grey")
-            print("\n".join(diff))
+            if not quiet:
+                print("\n".join(diff))
 
         print("=================")

@@ -11,8 +11,8 @@ class Judge(object):
     def fetch(self, url):
         fetch(url)
 
-    def diff(self):
-        diff()
+    def diff(self, quiet=False):
+        diff(quiet)
 
     def problems(self):
         problem_list = (Path.home() / ".judge").glob("*")
