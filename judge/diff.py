@@ -3,6 +3,7 @@ from difflib import Differ
 from pathlib import Path
 
 from pyfzf import FzfPrompt
+from termcolor import cprint
 
 from judge.parse import parse
 
@@ -49,9 +50,9 @@ def diff():
         diff = list(Differ().compare(sample_output, result))
 
         if len(diff) == len(sample_output):
-            print("[AC]")
+            cprint("[AC]", "green")
         else:
-            print("[WA]")
+            cprint("[WA]", "yellow")
             print("\n".join(diff))
 
         print("=================")
