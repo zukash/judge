@@ -1,7 +1,10 @@
+import pickle
 import re
 from getpass import getpass
 
 import requests
+
+from . import settings
 
 
 def login(username):
@@ -24,5 +27,7 @@ def login(username):
         print(error_message)
         exit()
 
-    print(res.cookies["REVEL_SESSION"])
+    with open(settings.COOKIES_FILE, "wb") as f:
+        pickle.dump(res.cookies, f)
+
     print("successfully logged in.")
