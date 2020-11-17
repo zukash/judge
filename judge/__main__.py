@@ -4,6 +4,7 @@ import fire
 
 from .diff import diff
 from .fetch import fetch
+from .login import login
 from .remove import remove
 
 
@@ -20,6 +21,9 @@ class Judge(object):
 
     def rm(self):
         remove()
+
+    def login(self, username):
+        login(username)
 
 
 def main():
