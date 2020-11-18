@@ -16,4 +16,4 @@ except Exception:
     configs = {}
 
 for name, value in configs.items():
-    exec(f"{name} = {value}")
+    globals().update({f"{name}": value})
