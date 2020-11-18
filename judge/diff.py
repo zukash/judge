@@ -32,7 +32,7 @@ def diff(quiet=False):
 
     # choose the problem
     print("problem: ", end="")
-    problem_dir = Path.home() / ".judge"
+    problem_dir = Path(settings.PROBLEM_DIR)
     problem_list = [Path(p).name for p in problem_dir.glob("*")]
     assert len(problem_list) != 0
     problem_selected = FzfPrompt().prompt(problem_list)[0]

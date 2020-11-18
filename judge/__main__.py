@@ -2,6 +2,7 @@ from pathlib import Path
 
 import fire
 
+from . import settings
 from .config import config
 from .diff import diff
 from .fetch import fetch
@@ -17,7 +18,7 @@ class Judge(object):
         diff(quiet)
 
     def problems(self):
-        problem_list = (Path.home() / ".judge").glob("*")
+        problem_list = Path(settings.PROBLEM_DIR).glob("*")
         print("\n".join([p.name for p in problem_list]))
 
     def rm(self):
