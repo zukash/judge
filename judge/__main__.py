@@ -2,6 +2,7 @@ from pathlib import Path
 
 import fire
 
+from .config import config
 from .diff import diff
 from .fetch import fetch
 from .login import login
@@ -24,6 +25,9 @@ class Judge(object):
 
     def login(self, username):
         login(username)
+
+    def config(self, name, value):
+        config(name, value)
 
 
 def main():
