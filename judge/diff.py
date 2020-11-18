@@ -8,6 +8,8 @@ from termcolor import cprint
 
 from judge.parse import parse
 
+from . import settings
+
 
 def execute(command, sample_input):
     """ execute command and measure elapsed time """
@@ -30,7 +32,7 @@ def diff(quiet=False):
 
     # choose the problem
     print("problem: ", end="")
-    problem_dir = Path.home() / ".judge"
+    problem_dir = Path(settings.PROBLEM_DIR)
     problem_list = [Path(p).name for p in problem_dir.glob("*")]
     assert len(problem_list) != 0
     problem_selected = FzfPrompt().prompt(problem_list)[0]
@@ -38,7 +40,12 @@ def diff(quiet=False):
 
     # choose the solver
     print("solver: ", end="")
-    solver_list = Path().glob("*")
+    solver_list = []
+    for solver in Path().glob("**/*"):
+        if solver.suffix == "":
+            continue
+        if solver.suffix.lstrip(".") in settings.SOLVER_EXTENSIONS:
+            solver_list.append(solver)
     solver_selected = FzfPrompt().prompt(solver_list)[0]
     print(solver_selected)
 
