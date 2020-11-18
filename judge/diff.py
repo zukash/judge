@@ -64,6 +64,10 @@ def diff(quiet=False):
             exit()
 
         # difference between sample and result
+        if len(result) == 0:
+            print("Error: the solver outputs nothing.")
+            exit()
+
         sample_output, result = sample_output.split("\n"), result.split("\n")
         diff = list(Differ().compare(sample_output, result))
 
