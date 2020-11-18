@@ -16,8 +16,8 @@ def parse(problem_name):
 
     soup = BeautifulSoup(problem_file.read_text(), "html.parser")
     inputs = soup.find_all("h3", text=re.compile("入力例"))
-    inputs = [si.find_parent().find("pre").text for si in inputs]
+    inputs = [si.find_parent().find("pre").text.lstrip() for si in inputs]
     outputs = soup.find_all("h3", text=re.compile("出力例"))
-    outputs = [so.find_parent().find("pre").text for so in outputs]
+    outputs = [so.find_parent().find("pre").text.lstrip() for so in outputs]
 
     return [inputs, outputs]
