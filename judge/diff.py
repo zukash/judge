@@ -71,7 +71,13 @@ def diff(quiet=False):
         sample_output, result = sample_output.split("\n"), result.split("\n")
         diff = list(Differ().compare(sample_output, result))
 
-        if len(diff) == len(sample_output):
+        # judgement
+        is_accepted = True
+        for line in diff:
+            if line[0] in "+-?":
+                is_accepted = False
+
+        if is_accepted:
             cprint("[AC]", "green", end=" ")
             cprint(f"{elapsed_time:.3f}", "grey")
             if not quiet:
