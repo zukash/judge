@@ -3,11 +3,13 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup
 
+from . import settings
+
 
 def parse(problem_name):
     """ 問題文からテストケースを抜き出して返す """
 
-    problem_file = Path.home() / ".judge" / problem_name
+    problem_file = Path(settings.PROBLEM_DIR) / problem_name
     if not problem_file.exists():
         print("Error: " + problem_name + " doesn't exist.")
         exit()

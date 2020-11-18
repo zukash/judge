@@ -21,7 +21,7 @@ def fetch(url):
     except Exception:
         pass
 
-    # ~/.judge/problem_name を作成して保存
-    problem_name = problem_dir / Path(url).name
+    # fetch a problem and save it
+    problem_file = problem_dir / Path(url).name
     response = requests.get(url, cookies=cookies)
-    problem_name.write_text(response.text)
+    problem_file.write_text(response.text)
