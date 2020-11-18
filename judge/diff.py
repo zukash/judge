@@ -42,6 +42,8 @@ def diff(quiet=False):
     print("solver: ", end="")
     solver_list = []
     for solver in Path().glob("**/*"):
+        if solver.suffix == "":
+            continue
         if solver.suffix.lstrip(".") in settings.SOLVER_EXTENSIONS:
             solver_list.append(solver)
     solver_selected = FzfPrompt().prompt(solver_list)[0]
