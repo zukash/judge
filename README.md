@@ -4,8 +4,7 @@ AtCoderのテストケースを自動チェックするPythonプログラム
 
 ## 導入方法
 
-``` 
-
+``` shell
 $ pip install git+https://github.com/zukash/judge.git@develop
 ```
 
@@ -15,8 +14,7 @@ developブランチの最新をpip installします。
 
 ### テストケースのダウンロード
 
-``` 
-
+``` shell
 $ judge fetch https://atcoder.jp/contests/abc184/tasks/abc184_a
 ```
 
@@ -24,8 +22,7 @@ $ judge fetch https://atcoder.jp/contests/abc184/tasks/abc184_a
 
 ### テストケースとの比較
 
-``` 
-
+``` shell
 $ judge diff
 ```
 
@@ -35,8 +32,7 @@ $ judge diff
 
 ### ログイン
 
-``` 
-
+``` shell
 $ judge login <USERNAME>
 ```
 
@@ -45,8 +41,7 @@ $ judge login <USERNAME>
 
 ### テストケース一覧表示
 
-``` 
-
+``` shell
 $ judge problems
 ```
 
@@ -54,8 +49,7 @@ $ judge problems
 
 ### テストケース削除
 
-``` 
-
+``` shell
 $ judge rm
 ```
 
@@ -64,8 +58,7 @@ $ judge rm
 
 ### 設定
 
-``` 
-
+``` shell
 $ judge config <NAME> <VALUE>
 ```
 
@@ -73,8 +66,7 @@ $ judge config <NAME> <VALUE>
 
 例えば、
 
-``` 
-
+``` shell
 $ judge config PROBLEM_DIR ~/.config/judge/.problems
 ```
 
